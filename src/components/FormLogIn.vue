@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "FormLogIn",
   data() {
@@ -43,11 +45,19 @@ export default {
     };
   },
   methods: {
-    submit() {
+    ...mapActions("auth", ["logIn"]),
+    async submit() {
       this.isPending = true;
-      console.log("form submit!");
 
-      // TODO: Send the form data to fetch the token (vuex)
+      try {
+        await this.logIn(this.form);
+
+        this.form.password = "";
+        this.isPending = false;
+      } catch (error) {
+        this.form.password = "";
+        this.isPending = false;
+      }
     },
   },
 };

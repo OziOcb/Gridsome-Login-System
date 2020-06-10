@@ -1,3 +1,4 @@
+import axios from "axios";
 // initial state
 const state = {
   token: "vuex-token",
@@ -15,7 +16,20 @@ const getters = {
 };
 
 // actions
-const actions = {};
+const actions = {
+  async logIn({ dispatch }, credentials) {
+    const response = await axios.post(
+      "https://dev.thinkingthrough.com/admin/bfd-api/jwt-auth/v1/token",
+      credentials
+    );
+
+    return dispatch("attempt", response.data.token);
+  },
+
+  async attempt(_, token) {
+    console.log("token vuex\n ->", token);
+  },
+};
 
 // mutations
 const mutations = {};

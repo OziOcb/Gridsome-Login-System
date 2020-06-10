@@ -11,5 +11,9 @@
     "es6-promise": "^4.2.8",
     "gridsome": "^0.7.0",
     "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2"
   }
 }

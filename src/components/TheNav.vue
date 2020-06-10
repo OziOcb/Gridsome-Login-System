@@ -6,7 +6,11 @@
       <template v-if="getIsAuthenticated">
         <li class="nav__link">User Name</li>
         <li><g-link class="nav__link" to="/dashboard/">Dashboard</g-link></li>
-        <li><a class="nav__link" href="#">Logout</a></li>
+        <li>
+          <a class="nav__link" @click.prevent="logOutHandler" href="#"
+            >Logout</a
+          >
+        </li>
       </template>
 
       <template v-else>
@@ -17,11 +21,22 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "TheNav",
   computed: {
     ...mapGetters("auth", ["getIsAuthenticated"]),
+  },
+  methods: {
+    ...mapActions("auth", ["logOut"]),
+    logOutHandler() {
+      this.logOut();
+
+      this.$router.replace({
+        name: "home",
+      });
+    },
   },
 };
 </script>

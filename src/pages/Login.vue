@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <div class="signIn">
-      <h1>This is a SignIn page</h1>
+    <div class="login">
+      <h1>This is a Login page</h1>
 
       <FormLogIn />
     </div>
@@ -12,7 +12,7 @@
 import FormLogIn from "@/components/FormLogIn.vue";
 
 export default {
-  name: "SignIn",
+  name: "Login",
   components: {
     FormLogIn,
   },

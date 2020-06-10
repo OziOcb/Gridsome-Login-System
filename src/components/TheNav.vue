@@ -6,11 +6,11 @@
       <template v-if="authenticated">
         <li class="nav__link">User Name</li>
         <li><g-link class="nav__link" to="/dashboard/">Dashboard</g-link></li>
-        <li><a class="nav__link" href="#">SignOut</a></li>
+        <li><a class="nav__link" href="#">Logout</a></li>
       </template>
 
       <template v-else>
-        <li><g-link class="nav__link" to="/sign-in/">SignIn</g-link></li>
+        <li><g-link class="nav__link" to="/login/">Login</g-link></li>
       </template>
     </ul>
   </nav>

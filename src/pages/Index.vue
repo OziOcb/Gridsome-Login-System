@@ -1,19 +1,13 @@
 <template>
   <Layout>
-    <h1>{{ getToken }}</h1>
-    <h2>{{ getUser }}</h2>
+    <div class="home">
+      <h1>This is a Home page</h1>
+    </div>
   </Layout>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
-  metaInfo: {
-    title: "Hello, world!",
-  },
-  computed: {
-    ...mapGetters("auth", ["getToken", "getUser"]),
-  },
+  name: "Homepage",
 };
 </script>

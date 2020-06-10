@@ -3,7 +3,7 @@
     <ul class="nav__list">
       <li><g-link class="nav__link" to="/">Home</g-link></li>
 
-      <template v-if="authenticated">
+      <template v-if="getIsAuthenticated">
         <li class="nav__link">User Name</li>
         <li><g-link class="nav__link" to="/dashboard/">Dashboard</g-link></li>
         <li><a class="nav__link" href="#">Logout</a></li>
@@ -17,13 +17,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "TheNav",
-  data() {
-    return {
-      // TODO: Swap it with the authenticated getter from Vuex when it's ready
-      authenticated: false,
-    };
+  computed: {
+    ...mapGetters("auth", ["getIsAuthenticated"]),
   },
 };
 </script>

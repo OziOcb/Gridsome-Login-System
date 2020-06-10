@@ -7,8 +7,8 @@ const state = {
 
 // getters
 const getters = {
-  getToken(state) {
-    return state.token;
+  getIsAuthenticated(state) {
+    return state.token && state.user;
   },
   getUser(state) {
     return state.user;

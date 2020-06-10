@@ -52,6 +52,8 @@ export default {
       try {
         await this.logIn(this.form);
 
+        this.$router.replace("/dashboard");
+
         this.form.password = "";
         this.isPending = false;
       } catch (error) {

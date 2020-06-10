@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <h1>{{ getToken }}</h1>
+    <h2>{{ getUser }}</h2>
   </Layout>
 </template>
 
@@ -12,7 +13,7 @@ export default {
     title: "Hello, world!",
   },
   computed: {
-    ...mapGetters("auth", ["getToken"]),
+    ...mapGetters("auth", ["getToken", "getUser"]),
   },
 };
 </script>

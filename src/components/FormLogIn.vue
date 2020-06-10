@@ -55,6 +55,7 @@ export default {
         this.form.password = "";
         this.isPending = false;
       } catch (error) {
+        console.log(error);
         this.form.password = "";
         this.isPending = false;
       }

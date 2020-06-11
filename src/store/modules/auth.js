@@ -23,13 +23,14 @@ const actions = {
       credentials
     );
 
-    // TODO: Save the token into the LocalStorage
+    localStorage.setItem("token", response.data.token);
 
-    return dispatch("attempt", response.data.token);
+    dispatch("attempt", response.data.token);
   },
 
-  async attempt({ commit }, token) {
+  async attempt({ commit, state }, token) {
     if (token) commit("SET_TOKEN", token);
+    if (!state.token) return;
 
     try {
       const response = await axios({
@@ -43,12 +44,14 @@ const actions = {
       commit("SET_USER", response.data);
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("token");
       commit("SET_TOKEN", "");
       commit("SET_USER", "");
     }
   },
 
   logOut({ commit }) {
+    localStorage.removeItem("token");
     commit("SET_TOKEN", "");
     commit("SET_USER", "");
   },

@@ -14,4 +14,8 @@ export default function(Vue, { router, head, isClient, appOptions }) {
   // Add Vuex store
   const store = createStore(Vue, { isClient });
   appOptions.store = store;
+
+  if (isClient) {
+    store.dispatch("auth/attempt", localStorage.getItem("token"));
+  }
 }
